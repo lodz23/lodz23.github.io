@@ -87,14 +87,12 @@
   .pixel-btn:hover{transform:translate(-2px,-2px);}
   .pixel-btn:active{transform:translate(0,0);}
 
-  .hero-graphic{position:relative;display:flex;align-items:center;justify-content:center;gap:18px;}
-  .hero-graphic .pluses{display:flex;flex-direction:column;gap:14px;}
-  .hero-graphic .pluses img{width:38px;height:38px;}
-
   /* Decorative layer positioned to match the 1440x810 Figma frame exactly; scales/centers with .hero, clips on narrower screens. */
   .hero-decor{position:absolute;z-index:0;top:0;left:50%;width:1440px;height:810px;transform:translateX(-50%);pointer-events:none;}
   .hero-decor .deco{position:absolute;}
-  .hero-decor .pacman{left:895px;top:226.29px;width:411.38px;height:322.4px;}
+  .hero-decor .pacman{left:895px;top:226.29px;width:297.32px;height:322.4px;}
+  .hero-decor .plus1{left:1162.81px;top:360.16px;width:55.4px;height:55.46px;}
+  .hero-decor .plus2{left:1250.98px;top:360.16px;width:55.41px;height:55.46px;}
   .hero-decor .deco-rect{left:850px;top:50px;width:122px;}
   .hero-decor .deco-ghost{opacity:.85;}
   .hero-decor .g1{left:1193px;top:47.07px;width:54px;}
@@ -104,7 +102,6 @@
   @media (max-width:860px){
     .hero{min-height:0;}
     .hero .wrap{grid-template-columns:1fr;}
-    .hero-graphic{order:-1;}
     .hero-decor{display:none;}
   }
 
@@ -227,6 +224,8 @@
   <section class="hero" id="top">
     <div class="hero-decor" aria-hidden="true">
       <img class="deco pacman" src="img/pacman.png" alt="" role="presentation">
+      <img class="deco plus1" src="img/Group (3).png" alt="" role="presentation">
+      <img class="deco plus2" src="img/Group (3).png" alt="" role="presentation">
       <img class="deco deco-rect" src="img/Vector (8).png" alt="" role="presentation">
       <img class="deco deco-ghost g1" src="img/Union (3).png" alt="" role="presentation">
       <img class="deco deco-ghost g2" src="img/Union (3).png" alt="" role="presentation">
@@ -238,12 +237,6 @@
         <h1><span class="tilde">~</span>GHOST IN<br>THE CODE()</h1>
         <p class="lede">Как обуздать монстров легаси-кода, пока они не победили вашу кодовую базу и продуктивность? Расскажут опытные разработчики на C++ в еженедельной рассылке.</p>
         <a href="#signup" class="pixel-btn">Читать за 0 монет</a>
-      </div>
-      <div class="hero-graphic">
-        <div class="pluses">
-          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG8AAABvCAYAAADixZ5gAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAWBJREFUeAHt3VFNQ0EQQNGBVAgOwEktIAWcIAEJWMBBJdTB8jDQ37c3OScZA3uT+Zyd2dha62ud63029jxkiRcmXph4YeKFiRcmXph4YeKFiRcmXph4YeKFiRcmXph4YeKFiRcmXph4YeKFiRcmXph4YeKFiRcmXph4YeKFiRcmXph4YeKFiRcmXph4YeKFiRd2WWt9zL5e51zX431eZk+3p/9jI0PRj7UZJl6YeGHihYkXJl6YeGHihYkXJl6YeGHihYkXJl6YeGHihYkXJl6YeGHihYkXJl6YeGHihYkXJl6YeGHihYkXJl7Y5ZjP2df1mLc5z/cxv7On2+xs+Sf9IWszTLww8cLECxMvTLww8cLECxMvTLww8cLECxMvTLww8cLECxMvTLww8cLECxMvTLww8cLECxMvTLww8cLECxMvTLww8cLECxMvTLww8cLECxMv7DJ7u8+5Jyvus7E/OLUYwKLOsIYAAAAASUVORK5CYII=" alt="" role="presentation">
-          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG8AAABvCAYAAADixZ5gAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAWBJREFUeAHt3VFNQ0EQQNGBVAgOwEktIAWcIAEJWMBBJdTB8jDQ37c3OScZA3uT+Zyd2dha62ud63029jxkiRcmXph4YeKFiRcmXph4YeKFiRcmXph4YeKFiRcmXph4YeKFiRcmXph4YeKFiRcmXph4YeKFiRcmXph4YeKFiRcmXph4YeKFiRcmXph4YeKFiRd2WWt9zL5e51zX431eZk+3p/9jI0PRj7UZJl6YeGHihYkXJl6YeGHihYkXJl6YeGHihYkXJl6YeGHihYkXJl6YeGHihYkXJl6YeGHihYkXJl6YeGHihYkXJl7Y5ZjP2df1mLc5z/cxv7On2+xs+Sf9IWszTLww8cLECxMvTLww8cLECxMvTLww8cLECxMvTLww8cLECxMvTLww8cLECxMvTLww8cLECxMvTLww8cLECxMvTLww8cLECxMvTLww8cLECxMv7DJ7u8+5Jyvus7E/OLUYwKLOsIYAAAAASUVORK5CYII=" alt="" role="presentation">
-        </div>
       </div>
     </div>
   </section>
