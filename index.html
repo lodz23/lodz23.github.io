@@ -105,6 +105,17 @@
   .hero-decor .trace-t{left:1100.32px;top:649.55px;width:227.05px;height:90.12px;}
   .hero-decor .trace-hook{left:932.75px;top:649.82px;width:189.78px;height:88.12px;}
   .hero-decor .trace-bar{left:112px;top:650.55px;width:846.1px;height:89.12px;}
+  .hero-decor .vetka-a{left:90.29px;top:666.83px;width:555.48px;height:5.01px;}
+  .hero-decor .vetka-b{left:679px;top:36.26px;width:141.88px;height:635.89px;}
+  .hero-decor .vetka-c{left:849.34px;top:610.76px;width:462.16px;height:66.58px;}
+
+  /* Dotted perimeter border, built from tochka.png repeated via two small transparent-padded tiles (kept as separate assets so spacing is controllable independent of the dot's own size). */
+  .hero-decor .dot-top,.hero-decor .dot-bottom{position:absolute;left:59px;width:1321px;height:5.01px;background:url("img/tochka-tile-h.png") repeat-x;background-size:30px 5.01px;}
+  .hero-decor .dot-left,.hero-decor .dot-right{position:absolute;top:15.03px;width:5.91px;height:775.61px;background:url("img/tochka-tile-v.png") repeat-y;background-size:5.91px 30px;}
+  .hero-decor .dot-top{top:15.03px;}
+  .hero-decor .dot-bottom{top:785.63px;}
+  .hero-decor .dot-left{left:59px;}
+  .hero-decor .dot-right{left:1374.09px;}
   @media (max-width:860px){
     .hero{min-height:0;padding:48px 0 40px;}
     .hero-decor{display:none;}
@@ -243,6 +254,13 @@
       <img class="deco trace-t" src="img/Vector (6).png" alt="" role="presentation">
       <img class="deco trace-hook" src="img/Vector (5).png" alt="" role="presentation">
       <img class="deco trace-bar" src="img/Vector (4).png" alt="" role="presentation">
+      <img class="deco vetka-a" src="img/vetka3.png" alt="" role="presentation">
+      <img class="deco vetka-b" src="img/vetka1.png" alt="" role="presentation">
+      <img class="deco vetka-c" src="img/vetka2.png" alt="" role="presentation">
+      <span class="deco dot-top" aria-hidden="true"></span>
+      <span class="deco dot-bottom" aria-hidden="true"></span>
+      <span class="deco dot-left" aria-hidden="true"></span>
+      <span class="deco dot-right" aria-hidden="true"></span>
     </div>
     <div class="hero-text">
       <h1><span class="tilde">~</span>GHOST IN<br>THE CODE()</h1>
