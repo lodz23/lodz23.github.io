@@ -78,12 +78,12 @@
   .hero-text{z-index:1;}
   .hero-text h1{position:absolute;left:112px;top:83.01px;width:606px;font-size:60.01px;letter-spacing:.01em;white-space:nowrap;}
   .hero-text .lede{
-    position:absolute;left:112px;top:301.01px;width:606px;margin:0;color:var(--white);
+    position:absolute;left:112px;top:301.01px;width:480px;margin:0;color:var(--white);
     font-family:var(--font-mono);font-size:20px;font-weight:400;line-height:1.6;
   }
   .pixel-btn{
     position:absolute;left:112px;top:531.01px;width:397px;height:62.62px;
-    font-family:var(--font-pixel);font-size:13px;color:var(--white);border:none;
+    font-family:var(--font-pixel);font-size:20.04px;color:var(--white);border:none;
     background-image:url("img/Union (5).png");background-size:100% 100%;background-repeat:no-repeat;
     display:flex;align-items:center;justify-content:center;text-decoration:none;cursor:pointer;
     transition:transform .12s ease;
@@ -154,13 +154,13 @@
   .speaker-card h3{font-family:var(--font-body);font-weight:700;font-size:21px;margin:0 0 4px;}
   .speaker-card .role{font-family:var(--font-mono);color:var(--dim);font-size:14px;margin:0 0 20px;line-height:1.55;}
   .speaker-card .bio{color:var(--white);font-size:14.5px;line-height:1.6;font-family:var(--font-mono);margin:0;}
-  .speaker-card .more{margin-top:14px;
+  .speaker-card .more{margin-top:auto;padding-top:14px;
     align-self:flex-start;background:none;border:none;color:var(--blue);
     font-family:var(--font-body);font-weight:700;font-size:16px;line-height:1.48;cursor:pointer;padding:0;
     display:flex;align-items:center;gap:8px;
   }
-  .speaker-card .more img{width:16.5px;height:9px;transform:rotate(90deg);transition:transform .18s ease;}
-  .speaker-card .more[aria-expanded="true"] img{transform:rotate(-90deg);}
+  .speaker-card .more img{width:16.5px;height:9px;transition:transform .18s ease;}
+  .speaker-card .more[aria-expanded="true"] img{transform:rotate(180deg);}
   .speaker-card .bio.clamped{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
   @media (max-width:860px){
     .invite-grid{grid-template-columns:1fr 1fr;}
@@ -179,33 +179,37 @@
   .topics{background:var(--bg-navy);position:relative;}
   .topics-scatter{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
   .topics-scatter img{position:absolute;}
-  .topics-inner{padding:48px 404px 40px;max-width:1920px;}
-  @media (max-width:1100px){
+  .topics-inner{padding:48px 111.5px 40px;max-width:1440px;}
+  @media (max-width:860px){
     .topics-inner{padding:48px 24px 40px;}
     .topics-scatter{display:none;}
   }
-  .topics h2{font-size:clamp(18px,2.6vw,26px);text-align:center;max-width:820px;margin:0 auto 40px;line-height:1.7;position:relative;z-index:1;}
+  .topics h2{font-size:clamp(18px,2.6vw,26px);text-align:center;max-width:1108px;margin:0 auto 40px;line-height:1.7;position:relative;z-index:1;}
   .topic-list{position:relative;z-index:1;}
+  .topic-block{
+    border:1px solid var(--blue-soft);border-radius:12px;background:rgba(255,255,255,.02);
+    margin-bottom:24px;overflow:hidden;
+  }
   .topic-item{
-    border:1px solid var(--blue-soft);border-radius:12px;background:rgba(255,255,255,.02);padding:18px 22px;
+    padding:18px 22px;
     display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;
     font-family:var(--font-body);
   }
   .topic-item .t{font-size:24px;font-weight:400;line-height:1.48;}
   .topic-item .plus{width:22px;height:22px;flex:none;transition:transform .18s ease;}
   .topic-item[aria-expanded="true"] .plus{transform:rotate(45deg);}
-  .topic-body{max-height:0;overflow:hidden;transition:max-height .3s ease;font-size:16px;color:var(--white);font-family:var(--font-body);margin-bottom:24px;}
-  .topic-item[aria-expanded="true"] + .topic-body{max-height:260px;padding:12px 22px 4px;}
-  .quest-note{text-align:center;max-width:640px;margin:48px auto 0;color:var(--white);font-size:13px;line-height:1.8;font-family:var(--font-body);position:relative;z-index:1;}
-  .quest-note a{color:var(--amber);text-decoration:underline;}
+  .topic-body{max-height:0;overflow:hidden;transition:max-height .3s ease;font-size:16px;color:var(--white);font-family:var(--font-body);}
+  .topic-item[aria-expanded="true"] + .topic-body{max-height:260px;padding:0 22px 20px;}
+  .quest-note{text-align:center;max-width:1040px;margin:48px auto 0;color:var(--white);font-size:24px;font-weight:400;line-height:1.48;font-family:var(--font-body);position:relative;z-index:1;}
+  .quest-note a{color:var(--amber);text-decoration:underline;font-weight:700;}
   .post-topics{position:relative;padding:0 24px;}
-  .post-topics .quest-note{margin:0 auto;padding:32px 0 8px;}
+  .post-topics .quest-note{margin:0 auto;padding:32px 0 53px;}
   .post-topics-scatter{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
   .post-topics-scatter img{position:absolute;}
 
   /* ---------- REWARDS ---------- */
   .rewards{padding:64px 0 48px;text-align:center;}
-  .rewards h2{font-size:clamp(18px,2.4vw,22px);margin-bottom:40px;}
+  .rewards h2{font-size:32px;font-weight:400;margin-bottom:40px;}
   .reward-row{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:820px;margin:0 auto;}
   .reward-row.row2{grid-template-columns:repeat(2,1fr);max-width:480px;margin-top:44px;}
   .reward-item img{height:64px;width:auto;margin:0 auto 14px;}
@@ -347,12 +351,12 @@
         </article>
       </div>
       <div class="speakers-scatter" aria-hidden="true">
-        <img src="img/Group (2).png" alt="" style="width:16px;bottom:-6px;left:2%;">
-        <img src="img/blau.png" alt="" style="width:10px;bottom:40px;left:34%;">
-        <img src="img/Group (2).png" alt="" style="width:22px;bottom:-14px;left:48%;">
-        <img src="img/blau.png" alt="" style="width:14px;bottom:60px;right:22%;">
-        <img src="img/Group (2).png" alt="" style="width:12px;bottom:10px;right:6%;">
-        <img src="img/blau.png" alt="" style="width:18px;bottom:-10px;right:0;">
+        <img src="img/Group (2).png" alt="" style="width:16px;bottom:-18px;left:1%;">
+        <img src="img/blau.png" alt="" style="width:5.36px;height:5.36px;bottom:-28px;left:33%;">
+        <img src="img/Group (2).png" alt="" style="width:20px;bottom:-30px;left:47%;">
+        <img src="img/blau.png" alt="" style="width:5.36px;height:5.36px;bottom:-16px;right:20%;">
+        <img src="img/Group (2).png" alt="" style="width:12px;bottom:-24px;right:5%;">
+        <img src="img/blau.png" alt="" style="width:5.36px;height:5.36px;bottom:-34px;right:-1%;">
       </div>
     </div>
   </section>
@@ -361,35 +365,49 @@
     <img class="topics-edge" src="img/Cloud2.png" alt="" role="presentation">
     <section class="topics" id="topics">
       <div class="topics-scatter" aria-hidden="true">
-        <img src="img/Group 18.png" alt="" style="width:120px;opacity:.35;top:6%;left:4%;transform:rotate(-8deg);">
-        <img src="img/Group 29.png" alt="" style="width:90px;opacity:.5;top:8%;right:6%;transform:rotate(6deg);">
-        <img src="img/Group 30.png" alt="" style="width:70px;opacity:.4;bottom:10%;left:8%;transform:rotate(10deg);">
-        <img src="img/Group 31.png" alt="" style="width:150px;opacity:.3;bottom:6%;right:3%;transform:rotate(-6deg);">
+        <img src="img/Group 18.png" alt="" style="width:100px;opacity:.35;top:5%;left:13%;transform:rotate(-8deg);">
+        <img src="img/Group 29.png" alt="" style="width:80px;opacity:.5;top:6%;right:14%;transform:rotate(6deg);">
+        <img src="img/Group 30.png" alt="" style="width:64px;opacity:.4;bottom:8%;left:15%;transform:rotate(10deg);">
+        <img src="img/Group 31.png" alt="" style="width:120px;opacity:.3;bottom:5%;right:13%;transform:rotate(-6deg);">
       </div>
       <div class="topics-inner wrap">
         <h2>Каждое письмо — новый инструмент для работы с легаси-кодом: от первого касания до культуры поддержки кодовой базы, которую можно распространить на команду</h2>
 
         <div class="topic-list">
+          <div class="topic-block">
           <div class="topic-item" role="button" tabindex="0" aria-expanded="false"><span class="t">Входим в легаси с AI: аудит и навигация по «зрелому» коду</span><img class="plus" src="img/ico.png" alt="" aria-hidden="true"></div>
           <div class="topic-body">Юля Головчанская расскажет, как быстро войти в кодовую базу без документации. Научимся отделять «живое» от «мертвого» и проверим, где AI реально экономит недели, а где заводит на неверные тропинки.</div>
+          </div>
 
+          <div class="topic-block">
           <div class="topic-item" role="button" tabindex="0" aria-expanded="false"><span class="t">Собираем то, что не собиралось: модернизация билд-систем и CI</span><img class="plus" src="img/ico.png" alt="" aria-hidden="true"></div>
           <div class="topic-body">Без стабильной сборки и автоматизации любой рефакторинг превращается в лотерею. Саша Иргер расскажет, как перейти с устаревших Make/autotools на CMake/Bazel, наладить воспроизведение старых тулчейнов в Docker, а еще настроить кеширование зависимостей, базовый CI-пайплайн и стратегии постепенной миграции без остановки разработки.</div>
+          </div>
 
+          <div class="topic-block">
           <div class="topic-item" role="button" tabindex="0" aria-expanded="false"><span class="t">Настраиваем аллокатор для общей памяти в PostgreSQL: как не допустить обидных ошибок</span><img class="plus" src="img/ico.png" alt="" aria-hidden="true"></div>
           <div class="topic-body">Илья Шишков столкнулся с ситуацией, когда верхний уровень аллокатора обещает типичное поведение при нехватке памяти. Но нижний уровень ведет себя иначе и роняет всю базу данных с ошибкой. Илья потратил много времени, чтобы понять, в чем дело, и починить аллокатор. В письме он расскажет, как не попасть в эту ловушку.</div>
+          </div>
 
+          <div class="topic-block">
           <div class="topic-item" role="button" tabindex="0" aria-expanded="false"><span class="t">Классы для управления ресурсами: простые и сложные случаи, нововведения в C++26</span><img class="plus" src="img/ico.png" alt="" aria-hidden="true"></div>
           <div class="topic-body">Константин Владимиров расскажет, как справляться с классическими проблемами кода на C++: утечки памяти, случаи двойного освобождения и в целом сложность ручного управления динамической памятью, особенно когда речь заходит про кастомные аллокаторы. Рассмотрим, как бороться с ними техническими средствами — санитайзерами — и с помощью механизмов абстракции, которые предлагает стандарт C++26.</div>
+          </div>
 
+          <div class="topic-block">
           <div class="topic-item" role="button" tabindex="0" aria-expanded="false"><span class="t">От C++98 к C++26: модернизация языка без революции и регистрации</span><img class="plus" src="img/ico.png" alt="" aria-hidden="true"></div>
           <div class="topic-body">Антон Полухин расскажет, как постепенно использовать возможности новых стандартов, не ломая обратную совместимость.</div>
+          </div>
 
+          <div class="topic-block">
           <div class="topic-item" role="button" tabindex="0" aria-expanded="false"><span class="t">Автоматизированный поиск проблем: статический анализ, компиляторы и стандарты</span><img class="plus" src="img/ico.png" alt="" aria-hidden="true"></div>
           <div class="topic-body">Андрей Карпов покажет, что проблемы можно выявлять как анализаторами, так и компиляторами, если правильно их настроить. Рассмотрим стандарты для написания кода (SEI CERT, MISRA) и отраслевые стандарты, которые предписывают, как правильно использовать компиляторы и анализаторы.</div>
+          </div>
 
+          <div class="topic-block">
           <div class="topic-item" role="button" tabindex="0" aria-expanded="false"><span class="t">Легаси как актив: строим процессы код-ревью и внедряем культуру поддержки</span><img class="plus" src="img/ico.png" alt="" aria-hidden="true"></div>
           <div class="topic-body">Техническая часть готова, но без процессов улучшения не закрепить. Алексей Веселовский расскажет, как настроить документирование архитектурных решений, онбординг новых разработчиков и метрики здоровья кода (churn, complexity, coverage). А еще разберемся, когда стоит рефакторить, когда — переписывать с нуля и как продавать бизнесу необходимость поддержки легаси.</div>
+          </div>
         </div>
       </div>
     </section>
