@@ -72,23 +72,26 @@
   @media (max-width:720px){.nav-links{gap:14px;flex-wrap:wrap;justify-content:flex-end;}}
 
   /* ---------- HERO ---------- */
-  .hero{
-    padding:64px 0 56px;position:relative;overflow:hidden;min-height:810px;
+  .hero{position:relative;overflow:hidden;min-height:810px;}
+
+  /* Both layers positioned to match the 1440x810 Figma frame exactly; share one coordinate system, centered on .hero, clipped on narrower screens. */
+  .hero-decor,.hero-text{position:absolute;top:0;left:50%;width:1440px;height:810px;transform:translateX(-50%);}
+  .hero-decor{z-index:0;pointer-events:none;}
+  .hero-text{z-index:1;}
+  .hero-text h1{position:absolute;left:112px;top:83.01px;width:606px;font-size:60.01px;letter-spacing:.01em;white-space:nowrap;}
+  .hero-text .lede{
+    position:absolute;left:112px;top:301.01px;width:606px;margin:0;color:var(--white);
+    font-family:var(--font-mono);font-size:20px;font-weight:400;line-height:1.6;
   }
-  .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr 1fr;gap:32px;align-items:center;}
-  .hero h1{font-size:clamp(28px,4.17vw,60px);letter-spacing:.01em;}
-  .hero p.lede{margin:22px 0 30px;max-width:46ch;color:var(--white);font-size:15px;font-family:var(--font-body);}
   .pixel-btn{
+    position:absolute;left:112px;top:531.01px;width:397px;height:62.62px;
     font-family:var(--font-pixel);font-size:13px;color:var(--white);border:none;
     background-image:url("img/Union (5).png");background-size:100% 100%;background-repeat:no-repeat;
-    padding:16px 26px;display:inline-block;text-decoration:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;text-decoration:none;cursor:pointer;
     transition:transform .12s ease;
   }
   .pixel-btn:hover{transform:translate(-2px,-2px);}
   .pixel-btn:active{transform:translate(0,0);}
-
-  /* Decorative layer positioned to match the 1440x810 Figma frame exactly; scales/centers with .hero, clips on narrower screens. */
-  .hero-decor{position:absolute;z-index:0;top:0;left:50%;width:1440px;height:810px;transform:translateX(-50%);pointer-events:none;}
   .hero-decor .deco{position:absolute;}
   .hero-decor .pacman{left:895px;top:226.29px;width:297.32px;height:322.4px;}
   .hero-decor .plus1{left:1162.81px;top:360.16px;width:55.4px;height:55.46px;}
@@ -103,9 +106,12 @@
   .hero-decor .trace-hook{left:932.75px;top:649.82px;width:189.78px;height:88.12px;}
   .hero-decor .trace-bar{left:112px;top:650.55px;width:846.1px;height:89.12px;}
   @media (max-width:860px){
-    .hero{min-height:0;}
-    .hero .wrap{grid-template-columns:1fr;}
+    .hero{min-height:0;padding:48px 0 40px;}
     .hero-decor{display:none;}
+    .hero-text{position:static;width:auto;height:auto;transform:none;padding:0 24px;}
+    .hero-text h1{position:static;width:auto;font-size:clamp(28px,7vw,38px);white-space:normal;}
+    .hero-text .lede{position:static;width:auto;max-width:46ch;margin:20px 0 28px;font-size:15px;font-family:var(--font-body);}
+    .pixel-btn{position:static;width:auto;height:auto;padding:16px 26px;display:inline-flex;}
   }
 
   /* ---------- SPEAKERS ---------- */
@@ -238,12 +244,10 @@
       <img class="deco trace-hook" src="img/Vector (5).png" alt="" role="presentation">
       <img class="deco trace-bar" src="img/Vector (4).png" alt="" role="presentation">
     </div>
-    <div class="wrap">
-      <div>
-        <h1><span class="tilde">~</span>GHOST IN<br>THE CODE()</h1>
-        <p class="lede">Как обуздать монстров легаси-кода, пока они не победили вашу кодовую базу и продуктивность? Расскажут опытные разработчики на C++ в еженедельной рассылке.</p>
-        <a href="#signup" class="pixel-btn">Читать за 0 монет</a>
-      </div>
+    <div class="hero-text">
+      <h1><span class="tilde">~</span>GHOST IN<br>THE CODE()</h1>
+      <p class="lede">Как обуздать монстров легаси-кода, пока они не победили вашу кодовую базу и продуктивность? Расскажут опытные разработчики на C++ в еженедельной рассылке.</p>
+      <a href="#signup" class="pixel-btn">Читать за 0 монет</a>
     </div>
   </section>
 
