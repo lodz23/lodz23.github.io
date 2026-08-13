@@ -231,16 +231,25 @@
   .signup-card{border:2px solid var(--blue);border-radius:24px;max-width:1217px;margin:0 auto;padding:44px 32px;text-align:center;}
   .signup-card .icon{width:78px;height:44.58px;margin:0 auto;}
   .signup-card h2{font-size:40px;margin-bottom:24px;}
-  .signup-card .sub{color:var(--white);font-size:24px;font-weight:400;margin-top:24px;margin-bottom:28px;font-family:var(--font-mono);}
+  .signup-card .sub{color:var(--white);font-size:24px;font-weight:400;margin-top:24px;margin-bottom:70px;font-family:var(--font-mono);}
   @media (max-width:860px){.signup .wrap{padding:0 24px;}}
-  .email-submit{display:flex;gap:0;}
+  .email-submit{display:flex;align-items:center;justify-content:center;gap:10px;}
   .email-submit input{
-    flex:1;background:var(--white);color:var(--bg-dark);border:1px solid var(--blue);border-right:none;
-    padding:14px 16px;font-family:var(--font-mono);font-size:14px;
+    width:430px;height:50px;flex:none;background:var(--white);color:var(--bg-dark);border:1px solid var(--blue);border-radius:25px;
+    padding:0 20px;font-family:var(--font-mono);font-size:14px;
   }
-  .email-submit button{background:var(--blue);border:1px solid var(--blue);color:var(--white);width:52px;flex:none;cursor:pointer;font-size:18px;}
-  .consent{display:flex;gap:8px;align-items:flex-start;text-align:left;margin-top:18px;font-size:11px;color:var(--white);line-height:1.5;font-family:var(--font-body);}
-  .consent input{margin-top:2px;}
+  .email-submit button{width:50px;height:50px;flex:none;border:none;padding:0;cursor:pointer;background:url("img/podpiska.png") center/cover no-repeat;}
+  .consent{display:inline-flex;gap:8px;align-items:flex-start;text-align:left;margin-top:24px;font-size:16px;color:var(--white);line-height:1.5;font-family:var(--font-body);}
+  .consent span{width:412px;}
+  .consent a{color:inherit;text-decoration:none;font-weight:700;}
+  .consent input{
+    appearance:none;-webkit-appearance:none;flex:none;margin:2px 0 0;width:19px;height:18px;
+    background:url("img/box.png") center/contain no-repeat;cursor:pointer;position:relative;
+  }
+  .consent input:checked::after{
+    content:"";position:absolute;left:4px;top:3px;width:9px;height:5px;
+    border:2px solid var(--blue);border-top:none;border-right:none;transform:rotate(-45deg);
+  }
 
   /* ---------- FOOTER LINKS + PARTNERS ---------- */
   .footlinks{padding:70px 0 56px;text-align:center;}
@@ -504,11 +513,11 @@
           <div class="email-submit">
             <label class="sr-only" for="mce-EMAIL">Подпишитесь на нашу рассылку</label>
             <input type="email" name="email" id="mce-EMAIL" placeholder="email@email.com" required>
-            <button type="submit" name="subscribe" value="Подписаться" id="mc-embedded-subscribe" aria-label="Подписаться">→</button>
+            <button type="submit" name="subscribe" value="Подписаться" id="mc-embedded-subscribe" aria-label="Подписаться"></button>
           </div>
           <label class="consent">
             <input type="checkbox" required>
-            <span>Соглашаюсь на&nbsp;обработку персональных данных в&nbsp;соответствии с&nbsp;политикой.</span>
+            <span><a href="https://meetups.yadro.com/documents/285/CY-consent-to-the-processing-of-personal-data-mailing-02_sN6XIXk.26.pdf" target="_blank" rel="noopener noreferrer">Соглашаюсь</a> на&nbsp;обработку персональных данных в&nbsp;соответствии с&nbsp;<a href="https://meetups.yadro.com/documents/283/CY-Personal-data-processing-policy-2026_2tOC0jR.pdf" target="_blank" rel="noopener noreferrer">политикой</a></span>
           </label>
         </form>
       </div>
