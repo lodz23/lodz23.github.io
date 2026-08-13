@@ -50,6 +50,7 @@
   }
   img{max-width:100%;display:block;}
   a{color:inherit;}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
   h1,h2{font-family:var(--font-pixel);font-weight:400;line-height:1.5;margin:0;}
   :focus-visible{outline:3px solid var(--amber);outline-offset:3px;}
@@ -496,14 +497,14 @@
         <img class="icon" src="img/Group 13.png" alt="" role="presentation">
         <p class="sub">Оставляйте ваш email-адрес, первое письмо придет 8 сентября.</p>
 
-        <!--
-          ⚠️ TODO: сюда пойдёт код формы DashaMail (action-адрес и служебные поля) —
-          как пришлёте сгенерированный код, вклею его сюда, оформление останется тем же.
-        -->
-        <form class="signup-form" onsubmit="return false">
+        <form class="signup-form validate" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" action="https://forms.dmsubscribe.ru/" method="post" target="_blank">
+          <input type="hidden" name="list_id" value="521468">
+          <input type="hidden" name="no_conf" value="">
+          <input type="hidden" name="notify" value="">
           <div class="email-submit">
-            <input type="email" name="email" placeholder="email@email.com" required aria-label="Email">
-            <button type="submit" aria-label="Отправить">→</button>
+            <label class="sr-only" for="mce-EMAIL">Подпишитесь на нашу рассылку</label>
+            <input type="email" name="email" id="mce-EMAIL" placeholder="email@email.com" required>
+            <button type="submit" name="subscribe" value="Подписаться" id="mc-embedded-subscribe" aria-label="Подписаться">→</button>
           </div>
           <label class="consent">
             <input type="checkbox" required>
