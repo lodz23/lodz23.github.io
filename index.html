@@ -252,6 +252,18 @@
     border:2px solid var(--blue);border-top:none;border-right:none;transform:rotate(-45deg);
   }
 
+  /* ---------- SIGNUP MODAL ---------- */
+  .signup-modal{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:24px;}
+  .signup-modal[hidden]{display:none;}
+  .signup-modal-backdrop{position:absolute;inset:0;background:rgba(13,15,17,.85);backdrop-filter:blur(4px);}
+  .signup-modal-card{position:relative;max-width:560px;width:100%;background:var(--bg-dark);border:2px solid var(--blue);border-radius:24px;padding:56px 40px 48px;text-align:center;}
+  .signup-modal-icon{width:72px;height:72px;margin:0 auto 24px;color:var(--white);}
+  .signup-modal-card h2{font-size:28px;margin-bottom:20px;}
+  .signup-modal-card p{color:var(--white);font-size:16px;line-height:1.6;font-family:var(--font-body);margin:0 auto;max-width:420px;}
+  .signup-modal-close{position:absolute;top:18px;right:18px;width:32px;height:32px;background:none;border:none;color:var(--white);cursor:pointer;padding:0;}
+  .signup-modal-close svg{width:100%;height:100%;}
+  @media (max-width:560px){.signup-modal-card{padding:40px 24px 32px;}}
+
   /* ---------- FOOTER LINKS + PARTNERS ---------- */
   .footlinks{padding:70px 0 56px;text-align:center;}
   .footlinks .row{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;}
@@ -507,7 +519,7 @@
         <img class="icon" src="img/Group 13.png" alt="" role="presentation">
         <p class="sub">Оставляйте ваш email-адрес, первое письмо придет 8 сентября.</p>
 
-        <form class="signup-form validate" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" action="https://forms.dmsubscribe.ru/" method="post" target="_blank">
+        <form class="signup-form validate" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" action="https://forms.dmsubscribe.ru/" method="post" target="signup-target">
           <input type="hidden" name="list_id" value="521468">
           <input type="hidden" name="no_conf" value="1">
           <input type="hidden" name="notify" value="">
@@ -521,6 +533,7 @@
             <span><a href="https://meetups.yadro.com/documents/285/CY-consent-to-the-processing-of-personal-data-mailing-02_sN6XIXk.26.pdf" target="_blank" rel="noopener noreferrer">Соглашаюсь</a> на&nbsp;обработку персональных данных в&nbsp;соответствии с&nbsp;<a href="https://meetups.yadro.com/documents/283/CY-Personal-data-processing-policy-2026_2tOC0jR.pdf" target="_blank" rel="noopener noreferrer">политикой</a></span>
           </label>
         </form>
+        <iframe name="signup-target" id="signup-target" title="Отправка формы подписки" style="display:none" aria-hidden="true"></iframe>
       </div>
     </div>
   </section>
@@ -546,7 +559,44 @@
     </div>
   </section>
 
+  <div class="signup-modal" id="signupModal" role="dialog" aria-modal="true" aria-labelledby="signupModalTitle" tabindex="-1" hidden>
+    <div class="signup-modal-backdrop" data-modal-close></div>
+    <div class="signup-modal-card">
+      <button class="signup-modal-close" type="button" aria-label="Закрыть" data-modal-close>
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 5L19 19M19 5L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+      </button>
+      <svg class="signup-modal-icon" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+        <circle cx="40" cy="40" r="36" stroke="currentColor" stroke-width="2.5"></circle>
+        <path d="M24 41L35 52L58 26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+      <h2 id="signupModalTitle">Это успех!</h2>
+      <p>Спасибо за&nbsp;проявленный интерес и&nbsp;подписку. Первое письмо цикла вы получите 8 сентября. На&nbsp;всякий случай проверьте неосновные папки почты — письмо может ждать вас там.</p>
+    </div>
+  </div>
+
   <script>
+    var signupForm = document.getElementById('mc-embedded-subscribe-form');
+    var signupTarget = document.getElementById('signup-target');
+    var signupModal = document.getElementById('signupModal');
+    var signupSubmitted = false;
+
+    signupForm.addEventListener('submit', function(){
+      signupSubmitted = true;
+    });
+    signupTarget.addEventListener('load', function(){
+      if(!signupSubmitted) return;
+      signupSubmitted = false;
+      signupForm.reset();
+      signupModal.hidden = false;
+      signupModal.focus();
+    });
+    signupModal.querySelectorAll('[data-modal-close]').forEach(function(el){
+      el.addEventListener('click', function(){ signupModal.hidden = true; });
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && !signupModal.hidden){ signupModal.hidden = true; }
+    });
+
     document.querySelectorAll('.topic-item').forEach(function(item){
       item.addEventListener('click', function(){
         var open = item.getAttribute('aria-expanded') === 'true';
