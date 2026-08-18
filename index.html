@@ -191,8 +191,13 @@
   .speaker-card .bio.clamped{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
   .speaker-card .bio.clamped.bio-tall{-webkit-line-clamp:5;}
   @media (max-width:860px){
+    .speakers{padding-top:35px;}
     .invite-grid{grid-template-columns:1fr 1fr;}
-    .invite-card{grid-column:span 2;}
+    .invite-grid > *{min-width:0;}
+    .speaker-card .photo{max-width:100%;}
+    .invite-card{grid-column:span 2;aspect-ratio:auto;border:none;padding:0;}
+    .invite-card .deco-t,.invite-card .deco-hook{display:none;}
+    .invite-card .inner{height:auto;padding:24px;font-size:16px;line-height:1.5;}
     .speaker-card.lead{grid-column:span 1;}
     .speakers .wrap{padding:0 24px;}
   }
